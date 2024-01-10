@@ -1,48 +1,15 @@
-"use strict";
+// З використанням властивостей і методів DOM-елементів, напиши скрипт, який:
 
-// Напиши стрілочну функцію getUserNames(users), яка прийматиме один параметр users — масив об’єктів користувачів.
-// Функція має повертати масив імен усіх користувачів(властивість name) із масиву users.
+// Порахує й виведе в консоль кількість категорій в ul#categories, тобто елементів li.item.
+// Для кожного елемента li.item у списку ul#categories знайде й виведе в консоль текст заголовка елемента (тегу <h2>) і кількість елементів у категорії (усіх <li>, вкладених у нього).
 
-console.log("Task 1");
+const list = document.querySelector("#categories");
 
-const getUserNames = (users = []) => users.map((user) => user.name);
+console.log(`Number of categories: ${list.children.length}`);
 
-console.log(
-  getUserNames([
-    {
-      name: "Moore Hensley",
-      email: "moorehensley@indexia.com",
-      balance: 2811,
-    },
-    {
-      name: "Sharlene Bush",
-      email: "sharlenebush@tubesys.com",
-      balance: 3821,
-    },
-    {
-      name: "Ross Vazquez",
-      email: "rossvazquez@xinware.com",
-      balance: 3793,
-    },
-    {
-      name: "Elma Head",
-      email: "elmahead@omatom.com",
-      balance: 2278,
-    },
-    {
-      name: "Carey Barr",
-      email: "careybarr@nurali.com",
-      balance: 3951,
-    },
-    {
-      name: "Blackburn Dotson",
-      email: "blackburndotson@furnigeer.com",
-      balance: 1498,
-    },
-    {
-      name: "Sheree Anthony",
-      email: "shereeanthony@kog.com",
-      balance: 2764,
-    },
-  ])
-);
+const items = document.querySelectorAll(".item");
+
+items.forEach((liItem) => {
+  console.log(`Category: ${liItem.children[0].textContent}`);
+  console.log(`Elements: ${liItem.children[1].children.length}`);
+});
